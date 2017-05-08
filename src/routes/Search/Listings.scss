@@ -1,0 +1,17 @@
+.listing {
+  display: flex;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+.img {
+  flex: 1 1 auto;
+}
+
+.title {
+  flex: 3 1 auto;
+}
+
+.price {
+  flex: 1 1 auto;
+}

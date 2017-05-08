@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import { jsLoader, cssLoader } from './webpack.loaders';
 import postcssConfig from './config/postcss.config';
-import { ServerMessage } from './../templates/logging';
+import { server } from './../templates/logging';
 
 const webpackConfig = webpack({
   context: path.resolve(__dirname, '../'),
@@ -56,5 +56,5 @@ const serverConfig = {
 };
 
 new WebpackDevServer(webpackConfig, serverConfig).listen(3000, 'localhost', () => {
-  console.log(ServerMessage);
+  console.log(server);
 });
