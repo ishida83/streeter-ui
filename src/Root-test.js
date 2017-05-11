@@ -1,22 +1,16 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 
 import Root from './Root';
-import styles from './index.scss';
+import Home from './routes/Home/Home';
+import Search from './routes/Search/Search';
 
 describe('Root', () => {
-  it('should render a h1 with the className of "red"', () => {
+  it('should render Home component by default', () => {
     const wrapper = shallow(<Root />);
-    const header = wrapper.find(`.${styles.red}`);
-    expect(header.length).to.equal(1);
-  });
-  it('should ensure Sinon is working', () => {
-    const callbackSpy = sinon.spy();
-    const callTheCallback = () => (callbackSpy('foo'));
 
-    callTheCallback();
-    expect(callbackSpy.getCall(0).args[0]).to.equal('foo');
+    expect(wrapper.find(Home).length).to.equal(1);
+    expect(wrapper.find(Search).length).to.equal(0);
   });
 });

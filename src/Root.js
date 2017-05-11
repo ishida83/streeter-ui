@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import Search from './routes/Search/Search';
-import styles from './index.scss';
+import { Pane } from './routes/Navigation/Navigation';
 
-const Root = () => (
-  <div>
-    <h1 className={styles.red}>Hello World</h1>
-    <Search />
-  </div>
-);
+
+class Root extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { active: 0 };
+  }
+
+  render() {
+    const { active } = this.state;
+
+    return (
+      <div>
+        { Pane[active] }
+      </div>
+    );
+  }
+}
 
 export default Root;
