@@ -1,24 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { Pane } from './routes/Navigation/Navigation';
+import Search from './routes/Search/Search';
 
-
-class Root extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { active: 0 };
-  }
-
-  render() {
-    const { active } = this.state;
-
-    return (
-      <div>
-        { Pane[active] }
-      </div>
-    );
-  }
-}
+const Root = () => (
+  <div>
+    <Search />
+  </div>
+);
 
 export default Root;
