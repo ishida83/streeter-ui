@@ -4,13 +4,14 @@ import fetch from 'isomorphic-fetch';
 
 import Listings from './Listings';
 import url from './../../api/url';
+import styles from './Results.scss';
 import { search } from './../../api/config';
 
 class Results extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { listings: null };
+    this.state = { listings: null, count: 0 };
   }
 
   componentWillMount() {
@@ -19,18 +20,21 @@ class Results extends Component {
 
     fetch(request)
       .then(response => response.json())
-      .then(data => this.setState({ listings: data }))
+      .then(data => this.setState(
+        { listings: data.listings, count: data.count },
+      ))
       .catch((err) => {
         console.log('err', err);
       });
   }
 
   render() {
-    const { listings } = this.state;
+    const { listings, count } = this.state;
+    const { query } = this.props;
 
     return (
       <div>
-        <h1>Results.js</h1>
+        <span className={styles.subtitle}>{count} results for {query}</span>
         { listings && <Listings listings={listings} /> }
       </div>
     );

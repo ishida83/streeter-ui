@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 import styles from './Listings.scss';
 
 const Listings = ({ listings }) => (
-  <div>
+  <div className={styles.listings}>
     { listings.map((listing, index) => (
-      <a className={styles.listing} href={listing.url} key={index}>
+      <a href={listing.url} key={index}>
         <div className={styles.listing}>
-          <img className={styles.img} src={listing.img} alt={listing.title} />
-          <div className={styles.title}>{listing.title}</div>
-          <div>ID: {listing.id}</div>
-          <div className={styles.price}>
-            Current price: {listing.price}{'\u5186'}
+          <div className={styles.placeholder}>
+            <img className={styles.img} src={listing.img} alt={listing.title} />
+          </div>
+          <div className={styles.info}>
+            <div className={styles.title}>{listing.title}</div>
+            <div className={styles.price}>{listing.price}{'\u5186'}</div>
+            <div className={styles.id}>ID: {listing.id}</div>
           </div>
         </div>
       </a>
