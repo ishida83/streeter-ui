@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 
 import Listings from './Listings';
 import url from './../../api/url';
+import { search } from './../../api/config';
 
 class Results extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Results extends Component {
 
   componentWillMount() {
     const { query } = this.props;
-    const request = url(query);
+    const request = url(search, query);
 
     fetch(request)
       .then(response => response.json())

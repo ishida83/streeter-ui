@@ -1,5 +1,5 @@
 const { api } = require('./config');
 
-const url = query => `${api}/${query}`;
+const url = (endpoint, query) => (query ? `${api}${endpoint}/${query}` : `${api}${endpoint}`);
 
 export default url;

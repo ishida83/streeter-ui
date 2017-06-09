@@ -12,5 +12,10 @@ describe('Root', () => {
 
     expect(wrapper.find(Launch).length).to.equal(1);
     expect(wrapper.find(Search).length).to.equal(1);
+
+    wrapper.setState({ loading: false });
+
+    expect(wrapper.find(Launch).length).to.equal(0);
+    expect(wrapper.find(Search).length).to.equal(1);
   });
 });
