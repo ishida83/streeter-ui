@@ -3,7 +3,7 @@ import path from 'path';
 import WebpackDevServer from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-import { jsLoader, cssLoader } from './webpack.loaders';
+import { jsLoader, cssLoader, fileLoader } from './webpack.loaders';
 import postcssConfig from './config/postcss.config';
 import { server } from './../templates/logging';
 
@@ -25,6 +25,7 @@ const webpackConfig = webpack({
     rules: [
       jsLoader,
       cssLoader,
+      fileLoader,
     ],
   },
 

@@ -44,3 +44,9 @@ export const cssLoaderDist = {
     ],
   }),
 };
+
+export const fileLoader = {
+  test: /\.png?$/,
+  exclude: /node_modules/,
+  use: 'file-loader?name=assets/[name]-[hash].[ext]',
+};

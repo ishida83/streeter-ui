@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
-import { jsLoader, cssLoaderDist } from './webpack.loaders';
+import { jsLoader, cssLoaderDist, fileLoader } from './webpack.loaders';
 import postcssConfig from './config/postcss.config';
 
 export default {
@@ -21,6 +21,7 @@ export default {
     rules: [
       jsLoader,
       cssLoaderDist,
+      fileLoader,
     ],
   },
 
