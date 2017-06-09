@@ -6,10 +6,9 @@ import Launch from './Launch';
 import styles from './Launch.scss';
 
 describe('Launch', () => {
-  it('should render', () => {
+  it('should render styles', () => {
     const wrapper = shallow(<Launch />);
 
     expect(wrapper.find(`.${styles.launch}`).length).to.equal(1);
-    expect(wrapper.find(`.${styles.text}`).length).to.equal(1);
   });
 });
