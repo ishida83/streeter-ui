@@ -1,5 +1,3 @@
-// TODO: Write tests when styles are used
-
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
