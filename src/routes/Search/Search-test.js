@@ -11,7 +11,7 @@ describe('Results', () => {
   it('should render Results component by default', () => {
     const wrapper = shallow(<Search />);
 
-    expect(wrapper.find(`.${styles.search}`).length).to.equal(1);
+    expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
     expect(wrapper.find(SearchBar).length).to.equal(1);
     expect(wrapper.find(Results).length).to.equal(1);
   });

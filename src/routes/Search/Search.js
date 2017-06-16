@@ -5,7 +5,7 @@ import SearchBar from './SearchBar/SearchBar';
 import styles from './Search.scss';
 
 const Search = () => (
-  <div className={styles.search}>
+  <div className={styles.container}>
     <SearchBar />
     <Results />
   </div>
