@@ -27,7 +27,7 @@ export const cssLoader = {
 };
 
 export const cssLoaderDist = {
-  test: /\.scss?$/,
+  test: /\.(scss|svg|ico|png)$/,
   exclude: /node_modules/,
   loader: ExtractTextPlugin.extract({
     fallback: 'style-loader',
