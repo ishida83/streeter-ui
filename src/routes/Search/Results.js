@@ -24,7 +24,7 @@ class Results extends Component {
         { listings: data.listings, count: data.count },
       ))
       .catch((err) => {
-        console.log('err', err);
+        console.log('err', err); // eslint-disable-line no-console
       });
   }
 
@@ -43,6 +43,10 @@ class Results extends Component {
 
 Results.propTypes = {
   query: PropTypes.string.isRequired,
+};
+
+Results.defaultProps = {
+  query: '14x9',
 };
 
 export default Results;

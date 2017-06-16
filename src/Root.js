@@ -23,7 +23,7 @@ class Root extends Component {
         }
       })
       .catch((err) => {
-        console.log('err', err);
+        console.log('err', err); // eslint-disable-line no-console
       });
   }
 

@@ -11,7 +11,7 @@ describe('Root', () => {
     const wrapper = shallow(<Root />);
 
     expect(wrapper.find(Launch).length).to.equal(1);
-    expect(wrapper.find(Search).length).to.equal(1);
+    expect(wrapper.find(Search).length).to.equal(0);
 
     wrapper.setState({ loading: false });
 
