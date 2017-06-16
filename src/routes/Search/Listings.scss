@@ -39,6 +39,10 @@ a {
 
 .title {
   flex: 3 1 auto;
+  line-height: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 
 .price {
