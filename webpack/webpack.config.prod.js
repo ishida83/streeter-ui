@@ -3,6 +3,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import { jsLoader, cssLoaderDist, fileLoader } from './webpack.loaders';
 import postcssConfig from './config/postcss.config';
@@ -41,5 +42,9 @@ export default {
     }),
     new ExtractTextPlugin('style.[hash].bundle.css'),
     new UglifyJsPlugin(),
+    new CopyWebpackPlugin([{
+      from: 'src/styles/static',
+      to: 'assets',
+    }]),
   ],
 };
