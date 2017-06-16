@@ -5,7 +5,7 @@ import styles from './Search.scss';
 
 const Search = () => (
   <div className={styles.search}>
-    <h2>Search</h2>
+    <h2 className={styles.title}>Search</h2>
     <Results />
   </div>
 );
