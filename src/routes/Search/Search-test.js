@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Search from './Search';
+import SearchBar from './SearchBar/SearchBar';
 import Results from './Results';
 import styles from './Search.scss';
 
@@ -11,6 +12,7 @@ describe('Results', () => {
     const wrapper = shallow(<Search />);
 
     expect(wrapper.find(`.${styles.search}`).length).to.equal(1);
+    expect(wrapper.find(SearchBar).length).to.equal(1);
     expect(wrapper.find(Results).length).to.equal(1);
   });
 });
