@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 
-import Listings from './Listings';
-import url from './../../api/url';
+import Listings from './Listings/Listings';
+import url from './../../../api/url';
 import styles from './Results.scss';
-import { search } from './../../api/config';
+import { search } from './../../../api/config';
 
 class Results extends Component {
   constructor(props) {

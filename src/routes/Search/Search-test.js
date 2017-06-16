@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import Search from './Search';
 import SearchBar from './SearchBar/SearchBar';
-import Results from './Results';
+import Results from './Results/Results';
 import styles from './Search.scss';
 
 describe('Results', () => {
