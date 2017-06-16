@@ -3,12 +3,12 @@ a {
 }
 
 .listings {
-  margin-top: 16px;
+  margin-top: 2rem;
 }
 
 .listing {
   display: flex;
-  box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   margin-bottom: 1em;
   background-color: #fff;
   color: #333f48;
@@ -29,11 +29,11 @@ a {
   flex-direction: column;
   justify-content: space-between;
   height: 120px;
-  padding: 1em;
+  padding: 1rem;
 }
 
 .id {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #969fa9;
 }
 
@@ -43,6 +43,6 @@ a {
 
 .price {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   flex: 1 1 auto;
 }
