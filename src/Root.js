@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 
 import url from './api/url';
-import { heartbeat } from './api/config';
 import Search from './routes/Search/Search';
 import Launch from './routes/Launch/Launch';
+import { heartbeat } from './api/config';
 
 class Root extends Component {
   constructor(props) {
@@ -29,11 +29,11 @@ class Root extends Component {
 
   render() {
     const { loading } = this.state;
+    const component = loading ? <Launch /> : <Search />;
 
     return (
       <div>
-        { loading && <Launch /> }
-        <Search />
+        { component }
       </div>
     );
   }
