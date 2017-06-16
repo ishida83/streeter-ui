@@ -4,7 +4,10 @@ import styles from './SearchBar.scss';
 
 const SearchBar = () => (
   <div className={styles.container}>
-    SearchBar.js
+    <input
+      className={styles.input}
+      placeholder="Search Yahoo Auctions Japan..."
+    />
   </div>
 );
 

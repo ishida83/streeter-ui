@@ -33,8 +33,8 @@ class Results extends Component {
     const { query } = this.props;
 
     return (
-      <div>
-        <span className={styles.subtitle}>{count} results for {query}</span>
+      <div className={styles.container}>
+        <div className={styles.subtitle}>{count} results for {query}</div>
         { listings && <Listings listings={listings} /> }
       </div>
     );

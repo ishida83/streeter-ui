@@ -17,7 +17,7 @@ describe('Results', () => {
       img: 'some img',
     };
 
-    expect(wrapper.find(`.${styles.subtitle}`).length).to.equal(1);
+    expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
     expect(wrapper.find(Listings).length).to.equal(0);
 
     wrapper.setState({ listings: [listing] });
