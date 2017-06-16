@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Listings.scss';
 
 const Listings = ({ listings }) => (
-  <div className={styles.listings}>
+  <div className={styles.container}>
     { listings.map((listing, index) => (
       <a href={listing.url} key={index}>
         <div className={styles.listing}>
