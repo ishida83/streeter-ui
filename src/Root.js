@@ -19,7 +19,7 @@ class Root extends Component {
     fetch(request)
       .then((response) => {
         if (response.status === 200) {
-          setTimeout(() => this.setState({ loading: false }), 2000);
+          this.setState({ loading: false });
         }
       })
       .catch((err) => {
