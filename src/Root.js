@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 import url from './api/url';
 import Search from './routes/Search/Search';
 import Launch from './routes/Launch/Launch';
+import TabBar from './common/TabBar/TabBar';
 import { heartbeat } from './api/config';
 
 class Root extends Component {
@@ -29,11 +30,12 @@ class Root extends Component {
 
   render() {
     const { loading } = this.state;
-    const component = loading ? <Launch /> : <Search />;
 
     return (
       <div>
-        { component }
+        { loading && <Launch />}
+        { !loading && <Search /> }
+        { !loading && <TabBar /> }
       </div>
     );
   }

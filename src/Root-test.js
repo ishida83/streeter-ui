@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import Root from './Root';
 import Search from './routes/Search/Search';
 import Launch from './routes/Launch/Launch';
+import TabBar from './common/TabBar/TabBar';
 
 describe('Root', () => {
   it('should render Launch before Search component', () => {
@@ -12,10 +13,12 @@ describe('Root', () => {
 
     expect(wrapper.find(Launch).length).to.equal(1);
     expect(wrapper.find(Search).length).to.equal(0);
+    expect(wrapper.find(TabBar).length).to.equal(0);
 
     wrapper.setState({ loading: false });
 
     expect(wrapper.find(Launch).length).to.equal(0);
     expect(wrapper.find(Search).length).to.equal(1);
+    expect(wrapper.find(TabBar).length).to.equal(1);
   });
 });
