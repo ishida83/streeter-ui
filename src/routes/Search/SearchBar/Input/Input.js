@@ -8,7 +8,8 @@ const Input = ({ onChange }) => (
     <input
       className={styles.input}
       placeholder="Search Yahoo Auctions Japan..."
-      onChange={onChange}
+      type="text"
+      onKeyDown={onChange}
     />
   </div>
 );

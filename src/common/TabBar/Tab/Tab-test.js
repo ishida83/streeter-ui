@@ -11,7 +11,7 @@ describe('Tab', () => {
     const wrapper = shallow(<Tab {...props} />);
 
     expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
-    expect(wrapper.find(`.${styles.active}`).length).to.equal(1);
+    expect(wrapper.find(`.${styles.active}`).length).to.equal(2);
     expect(wrapper.find('div').at(2).text()).to.equal('some tab name');
   });
 });

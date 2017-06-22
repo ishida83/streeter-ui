@@ -13,7 +13,9 @@ class SearchBar extends Component {
   }
 
   handleChange(event) {
-    this.setState({ query: event.target.value });
+    if (event.keyCode === 13) {
+      this.setState({ query: event.target.value });
+    }
   }
 
   render() {

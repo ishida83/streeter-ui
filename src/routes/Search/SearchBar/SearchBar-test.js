@@ -18,6 +18,7 @@ describe('SearchBar', () => {
   it('should read input onchange', () => {
     const wrapper = shallow(<SearchBar />);
     const inputEvent = {
+      keyCode: 13,
       target: {
         value: 'new query',
       },

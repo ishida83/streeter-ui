@@ -13,7 +13,7 @@ describe('Input', () => {
 
     expect(wrapper.find(`.${styles.input}`).length).to.equal(1);
 
-    wrapper.find('input').props().onChange();
+    wrapper.find('input').props().onKeyDown();
 
     expect(inputSpy.called).to.equal(true);
   });
