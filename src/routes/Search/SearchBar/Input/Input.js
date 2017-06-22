@@ -14,7 +14,7 @@ const Input = ({ onChange }) => (
 );
 
 Input.propTypes = {
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Input;
