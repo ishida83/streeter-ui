@@ -8,12 +8,12 @@ import Results from './Results/Results';
 import styles from './Search.scss';
 
 describe('Results', () => {
-  it('should render children', () => {
+  it('should not render results when there is no query', () => {
     const wrapper = shallow(<Search />);
 
     expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
     expect(wrapper.find(SearchBar).length).to.equal(1);
-    expect(wrapper.find(Results).length).to.equal(1);
+    expect(wrapper.find(Results).length).to.equal(0);
   });
 
   it('should render update queries', () => {

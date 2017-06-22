@@ -11,10 +11,19 @@ class Results extends Component {
   constructor(props) {
     super(props);
 
+    this.fetchData = this.fetchData.bind(this);
     this.state = { listings: null, count: 0 };
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  componentWillReceiveProps() {
+    this.fetchData();
+  }
+
+  fetchData() {
     const { query } = this.props;
     const request = url(search, query);
 
@@ -46,7 +55,7 @@ Results.propTypes = {
 };
 
 Results.defaultProps = {
-  query: '14x9',
+  query: '',
 };
 
 export default Results;

@@ -18,14 +18,17 @@ class Search extends Component {
   }
 
   updateQuery(newQuery) {
+    console.log('update called for', newQuery);
     this.setState({ query: newQuery });
   }
 
   render() {
+    const { query } = this.state;
+
     return (
       <div className={styles.container}>
         <SearchBar />
-        <Results />
+        { query && <Results query={query} /> }
       </div>
     );
   }
