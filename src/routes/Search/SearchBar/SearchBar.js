@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
+import Input from './Input/Input';
 import styles from './SearchBar.scss';
 
-const SearchBar = () => (
-  <div className={styles.container}>
-    <input
-      className={styles.input}
-      placeholder="Search Yahoo Auctions Japan..."
-    />
-  </div>
-);
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { query: '' };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ query: event.target.value });
+  }
+
+  render() {
+    return (
+      <div className={styles.container}>
+        <Input onChange={this.handleChange} />
+      </div>
+    );
+  }
+}
+
+SearchBar.propTypes = {
+  query: PropTypes.string.isRequired,
+};
+
+SearchBar.defaultProps = {
+  query: '',
+};
 
 export default SearchBar;
