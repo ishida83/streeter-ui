@@ -8,11 +8,22 @@ import Results from './Results/Results';
 import styles from './Search.scss';
 
 describe('Results', () => {
-  it('should render Results component by default', () => {
+  it('should render children', () => {
     const wrapper = shallow(<Search />);
 
     expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
     expect(wrapper.find(SearchBar).length).to.equal(1);
     expect(wrapper.find(Results).length).to.equal(1);
+  });
+
+  it('should render update queries', () => {
+    const wrapper = shallow(<Search />);
+    const query = 'some new query';
+
+    expect(wrapper.state().query).to.equal('');
+
+    wrapper.instance().updateQuery(query);
+
+    expect(wrapper.state().query).to.equal('some new query');
   });
 });

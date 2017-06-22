@@ -14,7 +14,10 @@ class SearchBar extends Component {
 
   handleChange(event) {
     if (event.keyCode === 13) {
-      this.setState({ query: event.target.value });
+      const { value } = event.target;
+
+      this.setState({ query: value });
+      this.context.updateQuery(value);
     }
   }
 
@@ -26,6 +29,10 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.contextTypes = {
+  updateQuery: PropTypes.func,
+};
 
 SearchBar.propTypes = {
   query: PropTypes.string.isRequired,

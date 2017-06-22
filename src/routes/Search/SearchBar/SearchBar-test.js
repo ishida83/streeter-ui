@@ -7,8 +7,10 @@ import Input from './Input/Input';
 import styles from './SearchBar.scss';
 
 describe('SearchBar', () => {
+  const context = { updateQuery: () => {} };
+
   it('should render styles', () => {
-    const wrapper = shallow(<SearchBar />);
+    const wrapper = shallow(<SearchBar />, { context });
 
     expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
     expect(wrapper.find(Input).length).to.equal(1);
@@ -16,7 +18,7 @@ describe('SearchBar', () => {
   });
 
   it('should read input onchange', () => {
-    const wrapper = shallow(<SearchBar />);
+    const wrapper = shallow(<SearchBar />, { context });
     const inputEvent = {
       keyCode: 13,
       target: {
