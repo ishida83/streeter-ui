@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Input from './Input/Input';
 import styles from './SearchBar.scss';
 
 class SearchBar extends Component {
@@ -10,21 +9,31 @@ class SearchBar extends Component {
 
     this.state = { query: '' };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    if (event.keyCode === 13) {
-      const { value } = event.target;
+    const { value } = event.target;
+    this.setState({ query: value });
+  }
 
-      this.setState({ query: value });
-      this.context.updateQuery(value);
-    }
+  handleSubmit(event) {
+    this.context.updateQuery(this.state.query);
+    event.preventDefault();
   }
 
   render() {
     return (
       <div className={styles.container}>
-        <Input onChange={this.handleChange} />
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className={styles.input}
+            placeholder="Search Yahoo Auctions Japan..."
+            type="text"
+            value={this.state.query}
+            onChange={this.handleChange}
+          />
+        </form>
       </div>
     );
   }
@@ -32,14 +41,6 @@ class SearchBar extends Component {
 
 SearchBar.contextTypes = {
   updateQuery: PropTypes.func,
-};
-
-SearchBar.propTypes = {
-  query: PropTypes.string.isRequired,
-};
-
-SearchBar.defaultProps = {
-  query: '',
 };
 
 export default SearchBar;
