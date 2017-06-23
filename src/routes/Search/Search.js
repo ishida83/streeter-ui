@@ -18,7 +18,6 @@ class Search extends Component {
   }
 
   updateQuery(newQuery) {
-    console.log('update called for', newQuery);
     this.setState({ query: newQuery });
   }
 
