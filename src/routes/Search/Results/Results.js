@@ -16,15 +16,16 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    this.fetchData();
-  }
-
-  componentWillReceiveProps() {
-    this.fetchData();
-  }
-
-  fetchData() {
     const { query } = this.props;
+    this.fetchData(query);
+  }
+
+  componentDidUpdate(nextProps) {
+    const { query } = nextProps;
+    this.fetchData(query);
+  }
+
+  fetchData(query) {
     const request = url(search, query);
 
     fetch(request)
