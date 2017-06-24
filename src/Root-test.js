@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 
 import Root from './Root';
 import Launch from './routes/Launch/Launch';
-import Search from './routes/Search/Search';
 import TabBar from './common/TabBar/TabBar';
 
 describe('Root', () => {
@@ -21,10 +20,11 @@ describe('Root', () => {
   });
 
   it('should render child component', () => {
-    const wrapper = shallow(<Root><Search /></Root>);
+    const Child = (<h1>some child</h1>);
+    const wrapper = shallow(<Root>{Child}</Root>);
 
     wrapper.setState({ loading: false });
 
-    expect(wrapper.find(Search).length).to.equal(1);
+    expect(wrapper.find('h1').text()).to.equal('some child');
   });
 });
