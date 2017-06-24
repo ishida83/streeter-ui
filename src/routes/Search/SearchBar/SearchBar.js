@@ -35,6 +35,7 @@ class SearchBar extends Component {
     const Searchable = (
       <form onSubmit={this.handleSubmit}>
         <input
+          autoFocus
           className={styles.input}
           placeholder="Search Yahoo Auctions Japan..."
           type="text"
@@ -45,7 +46,7 @@ class SearchBar extends Component {
     );
 
     const Searched = (
-      <button className={styles.searched} onClick={this.handleClick}>
+      <button className={styles.searched} type="button" onClick={this.handleClick}>
         &quot;{query}&quot;
       </button>
     );
