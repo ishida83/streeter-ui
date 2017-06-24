@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 import Results from './Results';
 import Listing from './Listing/Listing';
+import { Results as Placeholder } from './../../../common/Placeholders/index';
 import styles from './Results.scss';
 
 describe('Results', () => {
@@ -23,5 +24,15 @@ describe('Results', () => {
     wrapper.setState({ listings: [listing] });
 
     expect(wrapper.find(Listing).length).to.equal(1);
+  });
+
+  it('should show placeholder when fetching data', () => {
+    const wrapper = shallow(<Results query="some string" />);
+
+    expect(wrapper.find(Placeholder).length).to.equal(0);
+
+    wrapper.setState({ fetching: true });
+
+    expect(wrapper.find(Placeholder).length).to.equal(1);
   });
 });

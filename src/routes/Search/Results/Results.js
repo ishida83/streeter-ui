@@ -5,7 +5,7 @@ import fetch from 'isomorphic-fetch';
 import Listing from './Listing/Listing';
 import url from './../../../api/url';
 import styles from './Results.scss';
-import PlaceholderResults from './../../../common/Placeholders/PlaceholderResults';
+import { Results as Placeholder } from './../../../common/Placeholders/index';
 import { search } from './../../../api/config';
 
 class Results extends Component {
@@ -56,7 +56,7 @@ class Results extends Component {
     return (
       // TODO: Refactor
       <div>
-        { fetching ? <PlaceholderResults /> : PopulatedResults }
+        { fetching ? <Placeholder /> : PopulatedResults }
       </div>
     );
   }

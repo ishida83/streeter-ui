@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './PlaceholderListing.scss';
+import styles from './Listing.scss';
 
-const PlaceholderListing = () => (
+const Listing = () => (
   <div>
     <div className={styles.container}>
       <div className={styles.placeholder}>
@@ -17,4 +17,4 @@ const PlaceholderListing = () => (
   </div>
 );
 
-export default PlaceholderListing;
+export default Listing;
