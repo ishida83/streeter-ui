@@ -46,7 +46,7 @@ export const cssLoaderDist = {
 };
 
 export const fileLoader = {
-  test: /\.(png|svg|ico)?$/,
+  test: /\.(png|svg|ico|jpg)?$/,
   exclude: /node_modules/,
   use: 'file-loader?name=assets/[name]-[hash].[ext]',
 };

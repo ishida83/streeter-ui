@@ -1,3 +1,48 @@
-.container {
-  background-color: red;
+$border-height: 1px;
+$header-height: 75px;
+$tabbar-height: 63px;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc($header-height - $border-height);
+  border-bottom: $border-height solid rgba(0, 0, 0, 0.0975);
+}
+
+.pane {
+  height: calc(100vh - $header-height - $tabbar-height);
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  color: #969fa9;
+  margin: 0 2rem;
+  padding: 2rem;
+}
+
+.content path {
+  fill: #969fa9;
+}
+
+.content svg {
+  max-width: 45px;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.link {
+  color: #ff5a5f;
 }

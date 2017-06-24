@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Tab from './Tab/Tab';
 import HomeIcon from './icons/home.svg';
@@ -9,13 +10,19 @@ import styles from './TabBar.scss';
 const TabBar = () => (
   <div className={styles.container}>
     <Tab name="Home" active={false}>
-      <HomeIcon className={styles.homeIcon} />
+      <Link to="/home">
+        <HomeIcon className={styles.homeIcon} />
+      </Link>
     </Tab>
     <Tab name="Search" active>
-      <SearchIcon className={styles.searchIcon} />
+      <Link to="/search">
+        <SearchIcon className={styles.searchIcon} />
+      </Link>
     </Tab>
     <Tab name="Saved" active={false}>
-      <SavedIcon className={styles.savedIcon} />
+      <Link to="/saved">
+        <SavedIcon className={styles.savedIcon} />
+      </Link>
     </Tab>
   </div>
 );

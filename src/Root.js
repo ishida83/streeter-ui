@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 
-import url from './api/url';
-import Search from './routes/Search/Search';
 import Launch from './routes/Launch/Launch';
 import TabBar from './common/TabBar/TabBar';
+import url from './api/url';
 import { heartbeat } from './api/config';
 
 class Root extends Component {
@@ -30,15 +30,20 @@ class Root extends Component {
 
   render() {
     const { loading } = this.state;
+    const { children } = this.props;
 
     return (
       <div>
         { loading && <Launch />}
-        { !loading && <Search /> }
+        { !loading && children }
         { !loading && <TabBar /> }
       </div>
     );
   }
 }
+
+Root.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Root;
