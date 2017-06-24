@@ -28,7 +28,7 @@ class SearchBar extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             className={styles.input}
-            placeholder="&#128269;   Search Yahoo Auctions Japan..."
+            placeholder="Search Yahoo Auctions Japan..."
             type="text"
             value={this.state.query}
             onChange={this.handleChange}
