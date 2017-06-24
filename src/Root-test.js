@@ -7,8 +7,10 @@ import Launch from './routes/Launch/Launch';
 import TabBar from './common/TabBar/TabBar';
 
 describe('Root', () => {
+  const Child = (<h1>some child</h1>);
+
   it('should render Launch before Tab component', () => {
-    const wrapper = shallow(<Root />);
+    const wrapper = shallow(<Root>{Child}</Root>);
 
     expect(wrapper.find(Launch).length).to.equal(1);
     expect(wrapper.find(TabBar).length).to.equal(0);
@@ -20,7 +22,6 @@ describe('Root', () => {
   });
 
   it('should render child component', () => {
-    const Child = (<h1>some child</h1>);
     const wrapper = shallow(<Root>{Child}</Root>);
 
     wrapper.setState({ loading: false });
