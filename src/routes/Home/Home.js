@@ -19,7 +19,7 @@ const Home = () => (
         title="Explore new items from your saved searches"
         subtitle="Stay up to date with all your searches"
         link="/search"
-        cta="Find some to save"
+        cta="Explore Yahoo Auctions"
       >
         <HomeIcon />
       </Content>
