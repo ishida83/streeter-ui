@@ -12,7 +12,7 @@ class Results extends Component {
     super(props);
 
     this.fetchData = this.fetchData.bind(this);
-    this.state = { listings: null, count: 0 };
+    this.state = { listings: null, count: null };
   }
 
   componentDidMount() {
@@ -44,7 +44,8 @@ class Results extends Component {
 
     return (
       <div className={styles.container}>
-        <div className={styles.subtitle}>{count} results for {query}</div>
+        { count &&
+          <div className={styles.subtitle}>{count} results for {query}</div> }
         { listings && <Listings listings={listings} /> }
       </div>
     );
