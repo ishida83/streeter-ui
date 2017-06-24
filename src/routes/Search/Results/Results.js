@@ -5,6 +5,7 @@ import fetch from 'isomorphic-fetch';
 import Listing from './Listing/Listing';
 import url from './../../../api/url';
 import styles from './Results.scss';
+import PlaceholderResults from './../../../common/Placeholders/PlaceholderResults';
 import { search } from './../../../api/config';
 
 class Results extends Component {
@@ -12,7 +13,7 @@ class Results extends Component {
     super(props);
 
     this.fetchData = this.fetchData.bind(this);
-    this.state = { listings: null, count: null };
+    this.state = { listings: null, count: null, fetching: false };
   }
 
   componentDidMount() {
@@ -27,11 +28,12 @@ class Results extends Component {
 
   fetchData(query) {
     const request = url(search, query);
+    this.setState({ fetching: true });
 
     fetch(request)
       .then(response => response.json())
       .then(data => this.setState(
-        { listings: data.listings, count: data.count },
+        { listings: data.listings, count: data.count, fetching: false },
       ))
       .catch((err) => {
         console.log('err', err); // eslint-disable-line no-console
@@ -39,16 +41,22 @@ class Results extends Component {
   }
 
   render() {
-    const { listings, count } = this.state;
+    const { listings, count, fetching } = this.state;
     const { query } = this.props;
 
-    return (
+    const PopulatedResults = (
       <div className={styles.container}>
-        { count &&
-          <div className={styles.subtitle}>{count} results for {query}</div> }
+        <div className={styles.subtitle}>{count} results for {query}</div>
         { listings && listings.map((listing, index) => (
           <Listing listing={listing} key={index} />
-        ))}
+        )) }
+      </div>
+    );
+
+    return (
+      // TODO: Refactor
+      <div>
+        { fetching ? <PlaceholderResults /> : PopulatedResults }
       </div>
     );
   }
