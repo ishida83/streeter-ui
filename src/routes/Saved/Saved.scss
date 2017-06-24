@@ -8,6 +8,8 @@ $tabbar-height: 63px;
   justify-content: center;
   height: calc($header-height - $border-height);
   border-bottom: $border-height solid rgba(0, 0, 0, 0.0975);
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
 .pane {
