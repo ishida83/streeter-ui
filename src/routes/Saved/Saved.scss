@@ -16,4 +16,5 @@ $tabbar-height: 63px;
   height: calc(100vh - $header-height - $tabbar-height);
   display: flex;
   align-items: center;
+  padding: 0 2rem;
 }

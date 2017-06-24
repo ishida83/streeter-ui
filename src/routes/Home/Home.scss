@@ -22,13 +22,14 @@ $tabbar-height: 63px;
 }
 
 .pane {
-  padding: 2rem;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  line-height: 2rem;
+  padding: 0 2rem calc($tabbar-height + 2rem);
 }
 
 .description {
-  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  line-height: 2rem;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
   border-bottom: $border-height solid rgba(0, 0, 0, 0.0975);
 }
