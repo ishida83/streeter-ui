@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Listing.scss';
+import styles from './ListingPlaceholder.scss';
 
 const Listing = () => (
   <div>

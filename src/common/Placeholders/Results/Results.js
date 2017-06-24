@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Listing from './../Listing/Listing';
-import styles from './Results.scss';
+import styles from './ResultsPlaceholder.scss';
 
 const Results = () => (
   <div className={styles.container}>

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import Results from './Results';
 import Listing from './../Listing/Listing';
-import styles from './Results.scss';
+import styles from './ResultsPlaceholder.scss';
 
 describe('Results', () => {
   it('should render styles and Listings', () => {
