@@ -20,7 +20,7 @@ class Results extends Component {
     this.fetchData(query);
   }
 
-  componentDidUpdate(nextProps) {
+  componentWillReceiveProps(nextProps) {
     const { query } = nextProps;
     this.fetchData(query);
   }
