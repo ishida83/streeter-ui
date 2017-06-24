@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 
-import Listings from './Listings/Listings';
+import Listing from './Listing/Listing';
 import url from './../../../api/url';
 import styles from './Results.scss';
 import { search } from './../../../api/config';
@@ -46,7 +46,9 @@ class Results extends Component {
       <div className={styles.container}>
         { count &&
           <div className={styles.subtitle}>{count} results for {query}</div> }
-        { listings && <Listings listings={listings} /> }
+        { listings && listings.map((listing, index) => (
+          <Listing listing={listing} key={index} />
+        ))}
       </div>
     );
   }

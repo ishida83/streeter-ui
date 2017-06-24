@@ -2,10 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import Listings from './Listings';
-import styles from './Listings.scss';
+import Listing from './Listing';
+import styles from './Listing.scss';
 
-describe('Listings', () => {
+describe('Listing', () => {
   it('should render listings', () => {
     const listing = {
       url: 'some url',
@@ -14,10 +14,9 @@ describe('Listings', () => {
       id: 'some id',
       img: 'some img',
     };
-    const listings = [listing, listing];
-    const wrapper = shallow(<Listings listings={listings} />);
+    const wrapper = shallow(<Listing listing={listing} />);
     const img = wrapper.find(`.${styles.img}`);
 
-    expect(img.length).to.equal(2);
+    expect(img.length).to.equal(1);
   });
 });

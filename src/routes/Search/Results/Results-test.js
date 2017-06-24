@@ -3,11 +3,11 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Results from './Results';
-import Listings from './Listings/Listings';
+import Listing from './Listing/Listing';
 import styles from './Results.scss';
 
 describe('Results', () => {
-  it('should not render Listings component if no data', () => {
+  it('should not render Listing component if no data', () => {
     const wrapper = shallow(<Results query="some string" />);
     const listing = {
       url: 'some url',
@@ -18,10 +18,10 @@ describe('Results', () => {
     };
 
     expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
-    expect(wrapper.find(Listings).length).to.equal(0);
+    expect(wrapper.find(Listing).length).to.equal(0);
 
     wrapper.setState({ listings: [listing] });
 
-    expect(wrapper.find(Listings).length).to.equal(1);
+    expect(wrapper.find(Listing).length).to.equal(1);
   });
 });
