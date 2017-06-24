@@ -1,0 +1,22 @@
+.container {
+  padding: 0 1rem;
+}
+
+.loading {
+  background: linear-gradient(270deg, #fafafa, #969fa9, #fafafa);
+  background-size: 600% 600%;
+  animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.subtitle {
+  composes: loading;
+  height: 0.75rem;
+  width: 80px;
+  margin-top: 0.75rem;
+}

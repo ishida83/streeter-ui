@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+  margin: 1rem 0;
+  background-color: #fff;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+}
+
+.loading {
+  background: linear-gradient(270deg, #fafafa, #969fa9, #fafafa);
+  background-size: 600% 600%;
+  animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.img {
+  composes: loading;
+  width: 100px;
+  height: 100px;
+}
+
+.info {
+  padding: 1rem;
+  width: 100%;
+}
+
+.title {
+  composes: loading;
+  height: 2.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.price {
+  composes: loading;
+  height: 1.25rem;
+  width: 120px;
+  margin-bottom: 0.5rem;
+}
+
+.id {
+  composes: loading;
+  height: 0.75rem;
+  width: 80px;
+}
