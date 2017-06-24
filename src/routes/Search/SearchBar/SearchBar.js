@@ -7,9 +7,10 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { query: '' };
+    this.state = { query: '', searchable: true };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
@@ -18,22 +19,40 @@ class SearchBar extends Component {
   }
 
   handleSubmit(event) {
-    this.context.updateQuery(this.state.query);
+    const { query } = this.state;
+    this.context.updateQuery(query);
+    this.setState({ searchable: false });
     event.preventDefault();
   }
 
+  handleClick() {
+    this.setState({ searchable: true });
+  }
+
   render() {
+    const { query, searchable } = this.state;
+
+    const Searchable = (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          className={styles.input}
+          placeholder="Search Yahoo Auctions Japan..."
+          type="text"
+          value={query}
+          onChange={this.handleChange}
+        />
+      </form>
+    );
+
+    const Searched = (
+      <button className={styles.searched} onClick={this.handleClick}>
+        &quot;{query}&quot;
+      </button>
+    );
+
     return (
       <div className={styles.container}>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className={styles.input}
-            placeholder="Search Yahoo Auctions Japan..."
-            type="text"
-            value={this.state.query}
-            onChange={this.handleChange}
-          />
-        </form>
+        { searchable ? Searchable : Searched }
       </div>
     );
   }
