@@ -7,7 +7,7 @@ import Saved from './Saved/Saved';
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={Search} />
+    <Route exact path="/" component={Saved} />
     <Route path="/home" component={Home} />
     <Route path="/search" component={Search} />
     <Route path="/saved" component={Saved} />
