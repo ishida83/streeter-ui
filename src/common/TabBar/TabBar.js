@@ -9,13 +9,13 @@ import styles from './TabBar.scss';
 const TabBar = () => (
   <div className={styles.container}>
     <Tab name="Home" active={false}>
-      <HomeIcon />
+      <HomeIcon className={styles.homeIcon} />
     </Tab>
     <Tab name="Search" active>
-      <SearchIcon />
+      <SearchIcon className={styles.searchIcon} />
     </Tab>
     <Tab name="Saved" active={false}>
-      <SavedIcon />
+      <SavedIcon className={styles.savedIcon} />
     </Tab>
   </div>
 );
