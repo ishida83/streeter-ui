@@ -9,6 +9,9 @@ describe('Home', () => {
   it('should render styles', () => {
     const wrapper = shallow(<Home />);
 
-    expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
+    expect(wrapper.find(`.${styles.header}`).length).to.equal(1);
+
+    expect(wrapper.find('img').prop('alt')).to.equal('Yahoo Auctions Japan');
+    expect(wrapper.find(`.${styles.caption}`).text()).to.equal('Streeter UI');
   });
 });
