@@ -5,7 +5,7 @@ import styles from './ListingPlaceholder.scss';
 const Listing = () => (
   <div>
     <div className={styles.container}>
-      <div className={styles.placeholder}>
+      <div className={styles.imgContainer}>
         <div className={styles.img} />
       </div>
       <div className={styles.info}>

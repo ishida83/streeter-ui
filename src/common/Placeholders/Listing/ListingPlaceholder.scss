@@ -3,9 +3,10 @@
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
   margin: 1rem 0;
   background-color: #fff;
+  height: 130px;
 }
 
-.placeholder {
+.imgContainer {
   display: flex;
   align-items: center;
 }
@@ -24,8 +25,8 @@
 
 .img {
   composes: loading;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 }
 
 .info {

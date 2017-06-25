@@ -6,7 +6,7 @@ import styles from './Listing.scss';
 const Listing = ({ listing }) => (
   <a href={listing.url}>
     <div className={styles.container}>
-      <div className={styles.placeholder}>
+      <div className={styles.imgContainer}>
         <img className={styles.img} src={listing.img} alt={listing.title} />
       </div>
       <div className={styles.info}>
