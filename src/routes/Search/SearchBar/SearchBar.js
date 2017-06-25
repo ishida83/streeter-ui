@@ -39,11 +39,7 @@ class SearchBar extends Component {
   }
 
   handleBlur() {
-    const { submitted } = this.state;
-
-    if (submitted) {
-      this.setState({ focused: false });
-    }
+    this.setState({ focused: false });
   }
 
   render() {
@@ -77,7 +73,7 @@ class SearchBar extends Component {
 
     return (
       <div className={styles.container}>
-        { focused ? Searchable : Submitted }
+        { !submitted || focused ? Searchable : Submitted }
       </div>
     );
   }

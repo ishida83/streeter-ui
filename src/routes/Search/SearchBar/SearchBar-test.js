@@ -65,7 +65,7 @@ describe('SearchBar', () => {
     it('should display Searchable and hide Submitted', () => {
       const wrapper = shallow(<SearchBar />);
 
-      wrapper.setState({ focused: false });
+      wrapper.setState({ focused: false, submitted: 'some submitted' });
 
       expect(wrapper.find(`.${styles.input}`).length).to.equal(0);
       expect(wrapper.find(`.${styles.searched}`).length).to.equal(1);
@@ -74,6 +74,18 @@ describe('SearchBar', () => {
 
       expect(wrapper.find(`.${styles.input}`).length).to.equal(1);
       expect(wrapper.find(`.${styles.searched}`).length).to.equal(0);
+    });
+  });
+
+  describe('onFocus and onBlur', () => {
+    it('should show Cancel only when in focus', () => {
+      const wrapper = shallow(<SearchBar />);
+
+      expect(wrapper.find(`.${styles.cancel}`).length).to.equal(1);
+
+      wrapper.setState({ focused: false });
+
+      expect(wrapper.find(`.${styles.cancel}`).length).to.equal(0);
     });
   });
 });
