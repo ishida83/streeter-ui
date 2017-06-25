@@ -4,9 +4,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
 }
 
+form {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .input {
   box-sizing: border-box;
-  width: 100%;
   border-style: none;
   padding: 0.75rem 0.75rem 0.75rem 2.5rem;
   border-radius: 3px;
@@ -18,10 +22,15 @@
   background-size: 1rem;
   background-position: 0.75rem 50%;
   background-color: #f0f2f5;
+  flex-grow: 1;
 }
 
 input::placeholder {
   color: #999;
+}
+
+.cancel {
+  margin-left: 0.5rem;
 }
 
 .searched {

@@ -15,35 +15,65 @@ describe('SearchBar', () => {
     expect(wrapper.find(`.${styles.container}`).length).to.equal(1);
   });
 
-  it('should read input onchange', () => {
+
+  it('should display Submitted if valid query', () => {
     const wrapper = shallow(<SearchBar />, { context });
-    const inputEvent = { target: { value: 'new query' } };
 
-    wrapper.setState({ query: 'some query' });
-    wrapper.instance().handleChange(inputEvent);
+    expect(wrapper.find(`.${styles.input}`).length).to.equal(1);
+    expect(wrapper.find(`.${styles.cancel}`).length).to.equal(1);
 
-    expect(wrapper.state().query).to.equal('new query');
+    wrapper.setState({ focused: false, submitted: 'some submit' });
+
+    expect(wrapper.find(`.${styles.input}`).length).to.equal(0);
+    expect(wrapper.find(`.${styles.searched}`).length).to.equal(1);
   });
 
-  it('should update query onSubmit', () => {
-    const wrapper = shallow(<SearchBar />, { context });
+  describe('handleChange', () => {
+    it('should read input onChange', () => {
+      const wrapper = shallow(<SearchBar />, { context });
+      const inputEvent = { target: { value: 'new query' } };
+
+      wrapper.setState({ query: 'some query' });
+      wrapper.instance().handleChange(inputEvent);
+
+      expect(wrapper.state().query).to.equal('new query');
+    });
+  });
+
+  describe('handleSubmit', () => {
     const inputEvent = { preventDefault: () => {} };
 
-    wrapper.setState({ query: 'some query' });
-    wrapper.instance().handleSubmit(inputEvent);
+    it('should update query onSubmit', () => {
+      const wrapper = shallow(<SearchBar />, { context });
 
-    expect(context.updateQuery.called).to.equal(true);
+      wrapper.setState({ query: 'some query' });
+      wrapper.instance().handleSubmit(inputEvent);
+
+      expect(context.updateQuery.called).to.equal(true);
+    });
+
+    it('should not update submitted if no query', () => {
+      const wrapper = shallow(<SearchBar />, { context });
+
+      wrapper.instance().handleSubmit(inputEvent);
+
+      expect(wrapper.state().submitted).to.equal('');
+    });
   });
 
-  it('should display search query after submit', () => {
-    const wrapper = shallow(<SearchBar />, { context });
+  describe('handleClick', () => {
+    it('should display Searchable and hide Submitted', () => {
+      const wrapper = shallow(<SearchBar />);
 
-    expect(wrapper.find('form').length).to.equal(1);
-    expect(wrapper.find('button').length).to.equal(0);
+      wrapper.setState({ focused: false });
 
-    wrapper.setState({ searchable: false });
+      expect(wrapper.find(`.${styles.input}`).length).to.equal(0);
+      expect(wrapper.find(`.${styles.searched}`).length).to.equal(1);
 
-    expect(wrapper.find('form').length).to.equal(0);
-    expect(wrapper.find('button').length).to.equal(1);
+      wrapper.instance().handleClick();
+
+      expect(wrapper.find(`.${styles.input}`).length).to.equal(1);
+      expect(wrapper.find(`.${styles.searched}`).length).to.equal(0);
+    });
   });
 });

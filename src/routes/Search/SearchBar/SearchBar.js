@@ -7,10 +7,12 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { query: '', searchable: true };
+    this.state = { query: '', submitted: '', focused: true };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleChange(event) {
@@ -20,18 +22,34 @@ class SearchBar extends Component {
 
   handleSubmit(event) {
     const { query } = this.state;
-    this.context.updateQuery(query);
-    this.setState({ searchable: false });
+
+    if (query) {
+      this.context.updateQuery(query);
+      this.setState({ focused: false, submitted: query });
+    }
     event.preventDefault();
   }
 
   handleClick() {
-    this.setState({ searchable: true });
+    this.setState({ focused: true });
+  }
+
+  handleFocus() {
+    this.setState({ focused: true });
+  }
+
+  handleBlur() {
+    const { submitted } = this.state;
+
+    if (submitted) {
+      this.setState({ focused: false });
+    }
   }
 
   render() {
-    const { query, searchable } = this.state;
+    const { query, submitted, focused } = this.state;
 
+    // TODO: Move components
     const Searchable = (
       <form onSubmit={this.handleSubmit}>
         <input
@@ -41,19 +59,25 @@ class SearchBar extends Component {
           type="text"
           value={query}
           onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
         />
+        { focused &&
+          <button className={styles.cancel} type="button" onClick={this.handleClick}>
+          Cancel
+        </button> }
       </form>
     );
 
-    const Searched = (
+    const Submitted = (
       <button className={styles.searched} type="button" onClick={this.handleClick}>
-        &quot;{query}&quot;
+        &quot;{submitted}&quot;
       </button>
     );
 
     return (
       <div className={styles.container}>
-        { searchable ? Searchable : Searched }
+        { focused ? Searchable : Submitted }
       </div>
     );
   }
