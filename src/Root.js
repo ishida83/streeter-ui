@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Launch from './routes/Launch/Launch';
 import TabBar from './common/TabBar/TabBar';
 import url from './api/url';
 import { heartbeat } from './api/config';
+
+injectTapEventPlugin();
 
 class Root extends Component {
   constructor(props) {
